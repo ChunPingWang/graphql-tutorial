@@ -170,12 +170,15 @@ graphql-tutorial/                  # Git repo（Gradle rootProject.name = "api-s
 │   └── src/main/java/.../application/
 │       └── *ServiceImpl.java      # 入站端口實作
 │
-├── infrastructure/                # 基礎設施層 — 持久化實作
+├── infrastructure/                # 基礎設施層 — 持久化實作 + Bean 註冊
 │   └── src/main/java/.../infrastructure/
+│       ├── config/                # @Configuration Bean 註冊
+│       │   └── ApplicationServiceConfig.java
 │       ├── persistence/
 │       │   ├── entity/            # JPA 實體 (CustomerEntity, OrderEntity, ...)
-│       │   ├── repository/        # Spring Data JPA Repository
-│       │   └── mapper/            # Entity ↔ Domain 轉換
+│       │   ├── repository/        # Spring Data JPA Repository（實作 Domain outbound port）
+│       │   ├── mapper/            # Entity ↔ Domain 轉換
+│       │   └── JpaConfig.java     # JPA 掃描設定
 │       └── resources/
 │           └── db/migration/      # Flyway 遷移腳本
 │
@@ -356,6 +359,7 @@ service ProductService {
 service OrderService {
     rpc GetOrder(GetOrderRequest) returns (OrderResponse);
     rpc CreateOrder(CreateOrderRequest) returns (OrderResponse);
+    rpc UpdateStatus(UpdateStatusRequest) returns (OrderResponse);
     rpc ConfirmOrder(ConfirmOrderRequest) returns (OrderResponse);
     rpc ShipOrder(ShipOrderRequest) returns (OrderResponse);
     rpc DeliverOrder(DeliverOrderRequest) returns (OrderResponse);
