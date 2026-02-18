@@ -2,6 +2,8 @@ package com.poc.apistyles.arch;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import com.tngtech.archunit.lang.ArchRule;
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +44,7 @@ class LayerDependencyTest {
 
     @Test
     void adapterShouldOnlyDependOnApplicationOrDomain() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.adapter..")
@@ -62,7 +64,7 @@ class LayerDependencyTest {
 
     @Test
     void infrastructureShouldOnlyDependOnDomainOrApplication() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.infrastructure..")
@@ -82,7 +84,7 @@ class LayerDependencyTest {
 
     @Test
     void domainModelShouldNotDependOnOtherLayers() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.domain.model..")

@@ -2,6 +2,8 @@ package com.poc.apistyles.arch;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import com.tngtech.archunit.lang.ArchRule;
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +24,7 @@ class NamingConventionTest {
 
     @Test
     void domainModelClassesShouldBeNamedWithDomainTerm() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.domain.model..")
@@ -44,7 +46,7 @@ class NamingConventionTest {
 
     @Test
     void serviceClassesShouldEndWithService() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.application..")
@@ -58,10 +60,12 @@ class NamingConventionTest {
 
     @Test
     void portInterfacesShouldEndWithPort() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
-            .interfaces()
+        ArchRule rule = ArchRuleDefinition
+            .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.domain.port..")
+            .and()
+            .areInterfaces()
             .should()
             .haveSimpleNameEndingWith("Port")
             .orShould()
@@ -72,7 +76,7 @@ class NamingConventionTest {
 
     @Test
     void adapterClassesShouldBeNamedWithAdapterTerm() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.adapter..")
@@ -90,10 +94,12 @@ class NamingConventionTest {
 
     @Test
     void repositoryInterfacesShouldEndWithRepository() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
-            .interfaces()
+        ArchRule rule = ArchRuleDefinition
+            .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.domain.port.outbound..")
+            .and()
+            .areInterfaces()
             .should()
             .haveSimpleNameEndingWith("Repository");
 
@@ -102,12 +108,14 @@ class NamingConventionTest {
 
     @Test
     void inboundServiceInterfacesShouldBeInInboundPackage() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
-            .interfaces()
+        ArchRule rule = ArchRuleDefinition
+            .classes()
             .that()
             .haveSimpleNameEndingWith("Service")
             .and()
             .resideInAPackage("com.poc.apistyles.domain.port.inbound..")
+            .and()
+            .areInterfaces()
             .should()
             .beInterfaces();
 

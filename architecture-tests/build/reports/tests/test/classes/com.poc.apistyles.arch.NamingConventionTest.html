@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - NamingConventionTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>NamingConventionTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.poc.apistyles.arch.html">com.poc.apistyles.arch</a> &gt; NamingConventionTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">3</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.007s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">50%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="adapterClassesShouldBeNamedWithAdapterTerm()"></a>
+<h3 class="failures">adapterClassesShouldBeNamedWithAdapterTerm()</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package 'com.poc.apistyles.adapter..' and are not interfaces should have simple name ending with 'Adapter' or should have simple name ending with 'Controller' or should have simple name ending with 'Resolver'' was violated (31 times):
+Class &lt;com.poc.apistyles.adapter.graphql.ApiApplication&gt; does not have simple name ending with 'Adapter' in (ApiApplication.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.ApiApplication&gt; does not have simple name ending with 'Controller' in (ApiApplication.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.ApiApplication&gt; does not have simple name ending with 'Resolver' in (ApiApplication.java:0)
+Class &lt;com.poc.apistyles.adapter.graphql.config.GraphQlConfig&gt; does not have simple name ending with 'Adapter' in (GraphQlConfig.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.config.GraphQlConfig&gt; does not have simple name ending with 'Controller' in (GraphQlConfig.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.config.GraphQlConfig&gt; does not have simple name ending with 'Resolver' in (GraphQlConfig.java:0)
+Class &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput&gt; does not have simple name ending with 'Adapter' in (CustomerResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput&gt; does not have simple name ending with 'Controller' in (CustomerResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput&gt; does not have simple name ending with 'Resolver' in (CustomerResolver.java:0)
+Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData&gt; does not have simple name ending with 'Adapter' in (DashboardResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData&gt; does not have simple name ending with 'Controller' in (DashboardResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData&gt; does not have simple name ending with 'Resolver' in (DashboardResolver.java:0)
+Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard&gt; does not have simple name ending with 'Adapter' in (DashboardResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard&gt; does not have simple name ending with 'Controller' in (DashboardResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard&gt; does not have simple name ending with 'Resolver' in (DashboardResolver.java:0)
+Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$OrderData&gt; does not have simple name ending with 'Adapter' in (DashboardResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$OrderData&gt; does not have simple name ending with 'Controller' in (DashboardResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$OrderData&gt; does not have simple name ending with 'Resolver' in (DashboardResolver.java:0)
+Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$ProductData&gt; does not have simple name ending with 'Adapter' in (DashboardResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$ProductData&gt; does not have simple name ending with 'Controller' in (DashboardResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$ProductData&gt; does not have simple name ending with 'Resolver' in (DashboardResolver.java:0)
+Class &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$1&gt; does not have simple name ending with 'Adapter' in (OrderResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$1&gt; does not have simple name ending with 'Controller' in (OrderResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$1&gt; does not have simple name ending with 'Resolver' in (OrderResolver.java:0)
+Class &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput&gt; does not have simple name ending with 'Adapter' in (OrderResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput&gt; does not have simple name ending with 'Controller' in (OrderResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput&gt; does not have simple name ending with 'Resolver' in (OrderResolver.java:0)
+Class &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput&gt; does not have simple name ending with 'Adapter' in (OrderResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput&gt; does not have simple name ending with 'Controller' in (OrderResolver.java:0) and Class &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput&gt; does not have simple name ending with 'Resolver' in (OrderResolver.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.ApiApplication&gt; does not have simple name ending with 'Adapter' in (ApiApplication.java:0) and Class &lt;com.poc.apistyles.adapter.rest.ApiApplication&gt; does not have simple name ending with 'Controller' in (ApiApplication.java:0) and Class &lt;com.poc.apistyles.adapter.rest.ApiApplication&gt; does not have simple name ending with 'Resolver' in (ApiApplication.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig&gt; does not have simple name ending with 'Adapter' in (OpenApiConfig.java:0) and Class &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig&gt; does not have simple name ending with 'Controller' in (OpenApiConfig.java:0) and Class &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig&gt; does not have simple name ending with 'Resolver' in (OpenApiConfig.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.config.WebConfig&gt; does not have simple name ending with 'Adapter' in (WebConfig.java:0) and Class &lt;com.poc.apistyles.adapter.rest.config.WebConfig&gt; does not have simple name ending with 'Controller' in (WebConfig.java:0) and Class &lt;com.poc.apistyles.adapter.rest.config.WebConfig&gt; does not have simple name ending with 'Resolver' in (WebConfig.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.controller.OrderController$1&gt; does not have simple name ending with 'Adapter' in (OrderController.java:0) and Class &lt;com.poc.apistyles.adapter.rest.controller.OrderController$1&gt; does not have simple name ending with 'Controller' in (OrderController.java:0) and Class &lt;com.poc.apistyles.adapter.rest.controller.OrderController$1&gt; does not have simple name ending with 'Resolver' in (OrderController.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest&gt; does not have simple name ending with 'Adapter' in (CustomerRequest.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest&gt; does not have simple name ending with 'Controller' in (CustomerRequest.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest&gt; does not have simple name ending with 'Resolver' in (CustomerRequest.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt; does not have simple name ending with 'Adapter' in (CustomerResponse.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt; does not have simple name ending with 'Controller' in (CustomerResponse.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt; does not have simple name ending with 'Resolver' in (CustomerResponse.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse&gt; does not have simple name ending with 'Adapter' in (DashboardResponse.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse&gt; does not have simple name ending with 'Controller' in (DashboardResponse.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse&gt; does not have simple name ending with 'Resolver' in (DashboardResponse.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest&gt; does not have simple name ending with 'Adapter' in (OrderItemRequest.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest&gt; does not have simple name ending with 'Controller' in (OrderItemRequest.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest&gt; does not have simple name ending with 'Resolver' in (OrderItemRequest.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.dto.OrderItemResponse&gt; does not have simple name ending with 'Adapter' in (OrderResponse.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.OrderItemResponse&gt; does not have simple name ending with 'Controller' in (OrderResponse.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.OrderItemResponse&gt; does not have simple name ending with 'Resolver' in (OrderResponse.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.dto.OrderRequest&gt; does not have simple name ending with 'Adapter' in (OrderRequest.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.OrderRequest&gt; does not have simple name ending with 'Controller' in (OrderRequest.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.OrderRequest&gt; does not have simple name ending with 'Resolver' in (OrderRequest.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; does not have simple name ending with 'Adapter' in (OrderResponse.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; does not have simple name ending with 'Controller' in (OrderResponse.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; does not have simple name ending with 'Resolver' in (OrderResponse.java:0)
+Class &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt; does not have simple name ending with 'Adapter' in (ProductResponse.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt; does not have simple name ending with 'Controller' in (ProductResponse.java:0) and Class &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt; does not have simple name ending with 'Resolver' in (ProductResponse.java:0)
+Class &lt;com.poc.apistyles.adapter.soap.ApiApplication&gt; does not have simple name ending with 'Adapter' in (ApiApplication.java:0) and Class &lt;com.poc.apistyles.adapter.soap.ApiApplication&gt; does not have simple name ending with 'Controller' in (ApiApplication.java:0) and Class &lt;com.poc.apistyles.adapter.soap.ApiApplication&gt; does not have simple name ending with 'Resolver' in (ApiApplication.java:0)
+Class &lt;com.poc.apistyles.adapter.soap.config.SoapConfig&gt; does not have simple name ending with 'Adapter' in (SoapConfig.java:0) and Class &lt;com.poc.apistyles.adapter.soap.config.SoapConfig&gt; does not have simple name ending with 'Controller' in (SoapConfig.java:0) and Class &lt;com.poc.apistyles.adapter.soap.config.SoapConfig&gt; does not have simple name ending with 'Resolver' in (SoapConfig.java:0)
+Class &lt;com.poc.apistyles.adapter.soap.endpoint.CustomerSoapEndpoint&gt; does not have simple name ending with 'Adapter' in (CustomerSoapEndpoint.java:0) and Class &lt;com.poc.apistyles.adapter.soap.endpoint.CustomerSoapEndpoint&gt; does not have simple name ending with 'Controller' in (CustomerSoapEndpoint.java:0) and Class &lt;com.poc.apistyles.adapter.soap.endpoint.CustomerSoapEndpoint&gt; does not have simple name ending with 'Resolver' in (CustomerSoapEndpoint.java:0)
+Class &lt;com.poc.apistyles.adapter.soap.endpoint.OrderSoapEndpoint&gt; does not have simple name ending with 'Adapter' in (OrderSoapEndpoint.java:0) and Class &lt;com.poc.apistyles.adapter.soap.endpoint.OrderSoapEndpoint&gt; does not have simple name ending with 'Controller' in (OrderSoapEndpoint.java:0) and Class &lt;com.poc.apistyles.adapter.soap.endpoint.OrderSoapEndpoint&gt; does not have simple name ending with 'Resolver' in (OrderSoapEndpoint.java:0)
+Class &lt;com.poc.apistyles.adapter.websocket.ApiApplication&gt; does not have simple name ending with 'Adapter' in (ApiApplication.java:0) and Class &lt;com.poc.apistyles.adapter.websocket.ApiApplication&gt; does not have simple name ending with 'Controller' in (ApiApplication.java:0) and Class &lt;com.poc.apistyles.adapter.websocket.ApiApplication&gt; does not have simple name ending with 'Resolver' in (ApiApplication.java:0)
+Class &lt;com.poc.apistyles.adapter.websocket.config.RedisConfig&gt; does not have simple name ending with 'Adapter' in (RedisConfig.java:0) and Class &lt;com.poc.apistyles.adapter.websocket.config.RedisConfig&gt; does not have simple name ending with 'Controller' in (RedisConfig.java:0) and Class &lt;com.poc.apistyles.adapter.websocket.config.RedisConfig&gt; does not have simple name ending with 'Resolver' in (RedisConfig.java:0)
+Class &lt;com.poc.apistyles.adapter.websocket.config.WebSocketConfig&gt; does not have simple name ending with 'Adapter' in (WebSocketConfig.java:0) and Class &lt;com.poc.apistyles.adapter.websocket.config.WebSocketConfig&gt; does not have simple name ending with 'Controller' in (WebSocketConfig.java:0) and Class &lt;com.poc.apistyles.adapter.websocket.config.WebSocketConfig&gt; does not have simple name ending with 'Resolver' in (WebSocketConfig.java:0)
+Class &lt;com.poc.apistyles.adapter.websocket.handler.OrderStatusHandler&gt; does not have simple name ending with 'Adapter' in (OrderStatusHandler.java:0) and Class &lt;com.poc.apistyles.adapter.websocket.handler.OrderStatusHandler&gt; does not have simple name ending with 'Controller' in (OrderStatusHandler.java:0) and Class &lt;com.poc.apistyles.adapter.websocket.handler.OrderStatusHandler&gt; does not have simple name ending with 'Resolver' in (OrderStatusHandler.java:0)
+Class &lt;com.poc.apistyles.adapter.websocket.service.NotificationService&gt; does not have simple name ending with 'Adapter' in (NotificationService.java:0) and Class &lt;com.poc.apistyles.adapter.websocket.service.NotificationService&gt; does not have simple name ending with 'Controller' in (NotificationService.java:0) and Class &lt;com.poc.apistyles.adapter.websocket.service.NotificationService&gt; does not have simple name ending with 'Resolver' in (NotificationService.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.poc.apistyles.arch.NamingConventionTest.adapterClassesShouldBeNamedWithAdapterTerm(NamingConventionTest.java:92)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="portInterfacesShouldEndWithPort()"></a>
+<h3 class="failures">portInterfacesShouldEndWithPort()</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package 'com.poc.apistyles.domain.port..' and are interfaces should have simple name ending with 'Port' or should have simple name ending with 'Repository'' was violated (4 times):
+Class &lt;com.poc.apistyles.domain.port.inbound.CustomerService&gt; does not have simple name ending with 'Port' in (CustomerService.java:0) and Class &lt;com.poc.apistyles.domain.port.inbound.CustomerService&gt; does not have simple name ending with 'Repository' in (CustomerService.java:0)
+Class &lt;com.poc.apistyles.domain.port.inbound.DashboardService&gt; does not have simple name ending with 'Port' in (DashboardService.java:0) and Class &lt;com.poc.apistyles.domain.port.inbound.DashboardService&gt; does not have simple name ending with 'Repository' in (DashboardService.java:0)
+Class &lt;com.poc.apistyles.domain.port.inbound.OrderService&gt; does not have simple name ending with 'Port' in (OrderService.java:0) and Class &lt;com.poc.apistyles.domain.port.inbound.OrderService&gt; does not have simple name ending with 'Repository' in (OrderService.java:0)
+Class &lt;com.poc.apistyles.domain.port.inbound.ProductService&gt; does not have simple name ending with 'Port' in (ProductService.java:0) and Class &lt;com.poc.apistyles.domain.port.inbound.ProductService&gt; does not have simple name ending with 'Repository' in (ProductService.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.poc.apistyles.arch.NamingConventionTest.portInterfacesShouldEndWithPort(NamingConventionTest.java:74)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="serviceClassesShouldEndWithService()"></a>
+<h3 class="failures">serviceClassesShouldEndWithService()</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package 'com.poc.apistyles.application..' and have simple name not containing 'Configuration' should have simple name ending with 'Service'' was violated (4 times):
+Class &lt;com.poc.apistyles.application.CustomerServiceImpl&gt; does not have simple name ending with 'Service' in (CustomerServiceImpl.java:0)
+Class &lt;com.poc.apistyles.application.DashboardServiceImpl&gt; does not have simple name ending with 'Service' in (DashboardServiceImpl.java:0)
+Class &lt;com.poc.apistyles.application.OrderServiceImpl&gt; does not have simple name ending with 'Service' in (OrderServiceImpl.java:0)
+Class &lt;com.poc.apistyles.application.ProductServiceImpl&gt; does not have simple name ending with 'Service' in (ProductServiceImpl.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.poc.apistyles.arch.NamingConventionTest.serviceClassesShouldEndWithService(NamingConventionTest.java:58)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">adapterClassesShouldBeNamedWithAdapterTerm()</td>
+<td class="failures">0.002s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">domainModelClassesShouldBeNamedWithDomainTerm()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">inboundServiceInterfacesShouldBeInInboundPackage()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">portInterfacesShouldEndWithPort()</td>
+<td class="failures">0.001s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">repositoryInterfacesShouldEndWithRepository()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">serviceClassesShouldEndWithService()</td>
+<td class="failures">0.001s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.5</a> at 2026年2月18日 下午9:49:52</p>
+</div>
+</div>
+</body>
+</html>

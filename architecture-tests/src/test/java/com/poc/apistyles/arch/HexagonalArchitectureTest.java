@@ -2,12 +2,10 @@ package com.poc.apistyles.arch;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import com.tngtech.archunit.library.plantuml.PlantUmlArchCondition;
-import com.tngtech.archunit.library.plantuml.PlantUmlArchRule;
+import com.tngtech.archunit.lang.ArchRule;
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import static com.tngtech.archunit.library.plantuml.PlantUmlArchCondition.Configuration.ConfigurationBuilder;
 
 class HexagonalArchitectureTest {
 
@@ -26,7 +24,7 @@ class HexagonalArchitectureTest {
 
     @Test
     void domainLayerShouldNotDependOnAdapters() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .noClasses()
             .that()
             .resideInAPackage("com.poc.apistyles.domain..")
@@ -39,7 +37,7 @@ class HexagonalArchitectureTest {
 
     @Test
     void domainLayerShouldNotDependOnInfrastructure() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .noClasses()
             .that()
             .resideInAPackage("com.poc.apistyles.domain..")
@@ -52,7 +50,7 @@ class HexagonalArchitectureTest {
 
     @Test
     void domainLayerShouldNotDependOnApplication() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .noClasses()
             .that()
             .resideInAPackage("com.poc.apistyles.domain..")
@@ -65,7 +63,7 @@ class HexagonalArchitectureTest {
 
     @Test
     void portsShouldBeInterfaces() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.domain.port..")
@@ -77,7 +75,7 @@ class HexagonalArchitectureTest {
 
     @Test
     void inboundPortsShouldBeInterfaces() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.domain.port.inbound..")
@@ -89,7 +87,7 @@ class HexagonalArchitectureTest {
 
     @Test
     void outboundPortsShouldBeInterfaces() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.domain.port.outbound..")
@@ -101,7 +99,7 @@ class HexagonalArchitectureTest {
 
     @Test
     void adaptersShouldOnlyUseOutboundPorts() {
-        com.tngtech.archunit.lang.ArchRule rule = com.tngtech.archunit.lang.ArchRuleDefinition
+        ArchRule rule = ArchRuleDefinition
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.adapter..")

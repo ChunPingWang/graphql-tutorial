@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - LayerDependencyTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>LayerDependencyTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.poc.apistyles.arch.html">com.poc.apistyles.arch</a> &gt; LayerDependencyTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">3</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.055s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">40%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="adapterShouldOnlyDependOnApplicationOrDomain()"></a>
+<h3 class="failures">adapterShouldOnlyDependOnApplicationOrDomain()</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package 'com.poc.apistyles.adapter..' should only depend on classes that reside in any package ['com.poc.apistyles.domain..', 'com.poc.apistyles.application..', 'java..', 'org.springframework..', 'jakarta..', 'io.grpc..']' was violated (110 times):
+Constructor &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard.&lt;init&gt;(com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData, java.util.List, java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$OrderData&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$OrderData&gt; in (DashboardResolver.java:0)
+Constructor &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard.&lt;init&gt;(com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData, java.util.List, java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$ProductData&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$ProductData&gt; in (DashboardResolver.java:0)
+Constructor &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard.&lt;init&gt;(com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData, java.util.List, java.util.List)&gt; has parameter of type &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData&gt; in (DashboardResolver.java:0)
+Constructor &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput.&lt;init&gt;(java.util.UUID, java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput&gt; in (OrderResolver.java:0)
+Constructor &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.&lt;init&gt;(com.poc.apistyles.adapter.rest.dto.CustomerResponse, java.util.List, java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (DashboardResponse.java:0)
+Constructor &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.&lt;init&gt;(com.poc.apistyles.adapter.rest.dto.CustomerResponse, java.util.List, java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt; in (DashboardResponse.java:0)
+Constructor &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.&lt;init&gt;(com.poc.apistyles.adapter.rest.dto.CustomerResponse, java.util.List, java.util.List)&gt; has parameter of type &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt; in (DashboardResponse.java:0)
+Constructor &lt;com.poc.apistyles.adapter.rest.dto.OrderRequest.&lt;init&gt;(java.util.UUID, java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest&gt; in (OrderRequest.java:0)
+Constructor &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.&lt;init&gt;(java.util.UUID, java.util.UUID, com.poc.apistyles.domain.model.OrderStatus, java.math.BigDecimal, java.util.List, java.time.Instant, java.time.Instant)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.OrderItemResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderItemResponse&gt; in (OrderResponse.java:0)
+Field &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard.customer&gt; has type &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData&gt; in (DashboardResolver.java:0)
+Field &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard.recentOrders&gt; has generic type &lt;java.util.List&lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$OrderData&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$OrderData&gt; in (DashboardResolver.java:0)
+Field &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard.topProducts&gt; has generic type &lt;java.util.List&lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$ProductData&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$ProductData&gt; in (DashboardResolver.java:0)
+Field &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput.items&gt; has generic type &lt;java.util.List&lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput&gt; in (OrderResolver.java:0)
+Field &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.customer&gt; has type &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt; in (DashboardResponse.java:0)
+Field &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.recentOrders&gt; has generic type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (DashboardResponse.java:0)
+Field &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.topProducts&gt; has generic type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt; in (DashboardResponse.java:0)
+Field &lt;com.poc.apistyles.adapter.rest.dto.OrderRequest.items&gt; has generic type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest&gt; in (OrderRequest.java:0)
+Field &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.items&gt; has generic type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.OrderItemResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderItemResponse&gt; in (OrderResponse.java:0)
+Field &lt;com.poc.apistyles.adapter.websocket.handler.OrderStatusHandler.notificationService&gt; has type &lt;com.poc.apistyles.adapter.websocket.service.NotificationService&gt; in (OrderStatusHandler.java:0)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver.createCustomer(com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput.email()&gt; in (CustomerResolver.java:35)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver.createCustomer(com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput.name()&gt; in (CustomerResolver.java:35)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver.createCustomer(com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput.tier()&gt; in (CustomerResolver.java:35)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver.createCustomer(com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput)&gt; has parameter of type &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput&gt; in (CustomerResolver.java:0)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver.updateCustomer(java.util.UUID, com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput.email()&gt; in (CustomerResolver.java:40)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver.updateCustomer(java.util.UUID, com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput.name()&gt; in (CustomerResolver.java:40)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver.updateCustomer(java.util.UUID, com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput.tier()&gt; in (CustomerResolver.java:40)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver.updateCustomer(java.util.UUID, com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput)&gt; has parameter of type &lt;com.poc.apistyles.adapter.graphql.resolver.CustomerResolver$CustomerInput&gt; in (CustomerResolver.java:0)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard.customer()&gt; has return type &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData&gt; in (DashboardResolver.java:0)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard.recentOrders()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$OrderData&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$OrderData&gt; in (DashboardResolver.java:0)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard.topProducts()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$ProductData&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$ProductData&gt; in (DashboardResolver.java:0)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver.dashboard(java.util.UUID)&gt; calls constructor &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData.&lt;init&gt;(java.util.UUID, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)&gt; in (DashboardResolver.java:28)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver.dashboard(java.util.UUID)&gt; calls constructor &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard.&lt;init&gt;(com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$CustomerData, java.util.List, java.util.List)&gt; in (DashboardResolver.java:30)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver.dashboard(java.util.UUID)&gt; calls constructor &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$OrderData.&lt;init&gt;(java.util.UUID, java.util.UUID, java.lang.String, java.math.BigDecimal, java.lang.String, java.lang.String)&gt; in (DashboardResolver.java:29)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver.dashboard(java.util.UUID)&gt; calls constructor &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$ProductData.&lt;init&gt;(java.util.UUID, java.lang.String, java.math.BigDecimal, int, java.lang.String, java.lang.String, java.lang.String)&gt; in (DashboardResolver.java:30)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver.dashboard(java.util.UUID)&gt; has return type &lt;com.poc.apistyles.adapter.graphql.resolver.DashboardResolver$Dashboard&gt; in (DashboardResolver.java:0)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput.items()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput&gt; in (OrderResolver.java:0)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver.createOrder(com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput.customerId()&gt; in (OrderResolver.java:39)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver.createOrder(com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput.items()&gt; in (OrderResolver.java:36)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver.createOrder(com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput.productId()&gt; in (OrderResolver.java:37)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver.createOrder(com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput.quantity()&gt; in (OrderResolver.java:37)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver.createOrder(com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput)&gt; calls method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderItemInput.unitPrice()&gt; in (OrderResolver.java:37)
+Method &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver.createOrder(com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput)&gt; has parameter of type &lt;com.poc.apistyles.adapter.graphql.resolver.OrderResolver$OrderInput&gt; in (OrderResolver.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig.openAPI()&gt; calls constructor &lt;io.swagger.v3.oas.models.OpenAPI.&lt;init&gt;()&gt; in (OpenApiConfig.java:14)
+Method &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig.openAPI()&gt; calls constructor &lt;io.swagger.v3.oas.models.info.Contact.&lt;init&gt;()&gt; in (OpenApiConfig.java:18)
+Method &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig.openAPI()&gt; calls constructor &lt;io.swagger.v3.oas.models.info.Info.&lt;init&gt;()&gt; in (OpenApiConfig.java:14)
+Method &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig.openAPI()&gt; calls method &lt;io.swagger.v3.oas.models.OpenAPI.info(io.swagger.v3.oas.models.info.Info)&gt; in (OpenApiConfig.java:15)
+Method &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig.openAPI()&gt; calls method &lt;io.swagger.v3.oas.models.info.Contact.name(java.lang.String)&gt; in (OpenApiConfig.java:19)
+Method &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig.openAPI()&gt; calls method &lt;io.swagger.v3.oas.models.info.Info.contact(io.swagger.v3.oas.models.info.Contact)&gt; in (OpenApiConfig.java:19)
+Method &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig.openAPI()&gt; calls method &lt;io.swagger.v3.oas.models.info.Info.description(java.lang.String)&gt; in (OpenApiConfig.java:17)
+Method &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig.openAPI()&gt; calls method &lt;io.swagger.v3.oas.models.info.Info.title(java.lang.String)&gt; in (OpenApiConfig.java:16)
+Method &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig.openAPI()&gt; calls method &lt;io.swagger.v3.oas.models.info.Info.version(java.lang.String)&gt; in (OpenApiConfig.java:18)
+Method &lt;com.poc.apistyles.adapter.rest.config.OpenApiConfig.openAPI()&gt; has return type &lt;io.swagger.v3.oas.models.OpenAPI&gt; in (OpenApiConfig.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.createCustomer(com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest.email()&gt; in (CustomerController.java:39)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.createCustomer(com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest.name()&gt; in (CustomerController.java:39)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.createCustomer(com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest.tier()&gt; in (CustomerController.java:39)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.createCustomer(com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse.from(com.poc.apistyles.domain.model.Customer)&gt; in (CustomerController.java:40)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.createCustomer(com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt; in (CustomerController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.createCustomer(com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; has parameter of type &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest&gt; in (CustomerController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.getAllCustomers()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt; in (CustomerController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.getAllCustomers()&gt; references method &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse.from(com.poc.apistyles.domain.model.Customer)&gt; in (CustomerController.java:26)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.getCustomer(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse.from(com.poc.apistyles.domain.model.Customer)&gt; in (CustomerController.java:34)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.getCustomer(java.util.UUID)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt; in (CustomerController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.updateCustomer(java.util.UUID, com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest.email()&gt; in (CustomerController.java:45)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.updateCustomer(java.util.UUID, com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest.name()&gt; in (CustomerController.java:45)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.updateCustomer(java.util.UUID, com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest.tier()&gt; in (CustomerController.java:45)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.updateCustomer(java.util.UUID, com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse.from(com.poc.apistyles.domain.model.Customer)&gt; in (CustomerController.java:46)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.updateCustomer(java.util.UUID, com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt; in (CustomerController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.CustomerController.updateCustomer(java.util.UUID, com.poc.apistyles.adapter.rest.dto.CustomerRequest)&gt; has parameter of type &lt;com.poc.apistyles.adapter.rest.dto.CustomerRequest&gt; in (CustomerController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.DashboardController.getDashboard(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.from(com.poc.apistyles.domain.port.inbound.DashboardService$Dashboard)&gt; in (DashboardController.java:23)
+Method &lt;com.poc.apistyles.adapter.rest.controller.DashboardController.getDashboard(java.util.UUID)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse&gt; in (DashboardController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.cancelOrder(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.from(com.poc.apistyles.domain.model.Order)&gt; in (OrderController.java:67)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.cancelOrder(java.util.UUID)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.confirmOrder(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.from(com.poc.apistyles.domain.model.Order)&gt; in (OrderController.java:49)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.confirmOrder(java.util.UUID)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.createOrder(com.poc.apistyles.adapter.rest.dto.OrderRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest.productId()&gt; in (OrderController.java:40)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.createOrder(com.poc.apistyles.adapter.rest.dto.OrderRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest.quantity()&gt; in (OrderController.java:40)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.createOrder(com.poc.apistyles.adapter.rest.dto.OrderRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest.unitPrice()&gt; in (OrderController.java:40)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.createOrder(com.poc.apistyles.adapter.rest.dto.OrderRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderRequest.customerId()&gt; in (OrderController.java:42)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.createOrder(com.poc.apistyles.adapter.rest.dto.OrderRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderRequest.items()&gt; in (OrderController.java:39)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.createOrder(com.poc.apistyles.adapter.rest.dto.OrderRequest)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.from(com.poc.apistyles.domain.model.Order)&gt; in (OrderController.java:43)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.createOrder(com.poc.apistyles.adapter.rest.dto.OrderRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.createOrder(com.poc.apistyles.adapter.rest.dto.OrderRequest)&gt; has parameter of type &lt;com.poc.apistyles.adapter.rest.dto.OrderRequest&gt; in (OrderController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.deliverOrder(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.from(com.poc.apistyles.domain.model.Order)&gt; in (OrderController.java:61)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.deliverOrder(java.util.UUID)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.getAllOrders()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.getOrder(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.from(com.poc.apistyles.domain.model.Order)&gt; in (OrderController.java:34)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.getOrder(java.util.UUID)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.shipOrder(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.from(com.poc.apistyles.domain.model.Order)&gt; in (OrderController.java:55)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.shipOrder(java.util.UUID)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.updateOrderStatus(java.util.UUID, com.poc.apistyles.domain.model.OrderStatus)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.from(com.poc.apistyles.domain.model.Order)&gt; in (OrderController.java:79)
+Method &lt;com.poc.apistyles.adapter.rest.controller.OrderController.updateOrderStatus(java.util.UUID, com.poc.apistyles.domain.model.OrderStatus)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.ProductController.createProduct(java.lang.String, java.math.BigDecimal, int, java.lang.String)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse.from(com.poc.apistyles.domain.model.Product)&gt; in (ProductController.java:44)
+Method &lt;com.poc.apistyles.adapter.rest.controller.ProductController.createProduct(java.lang.String, java.math.BigDecimal, int, java.lang.String)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt; in (ProductController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.ProductController.getAllProducts()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt; in (ProductController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.ProductController.getAllProducts()&gt; references method &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse.from(com.poc.apistyles.domain.model.Product)&gt; in (ProductController.java:26)
+Method &lt;com.poc.apistyles.adapter.rest.controller.ProductController.getProduct(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse.from(com.poc.apistyles.domain.model.Product)&gt; in (ProductController.java:34)
+Method &lt;com.poc.apistyles.adapter.rest.controller.ProductController.getProduct(java.util.UUID)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt; in (ProductController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.controller.ProductController.updateStock(java.util.UUID, int)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse.from(com.poc.apistyles.domain.model.Product)&gt; in (ProductController.java:50)
+Method &lt;com.poc.apistyles.adapter.rest.controller.ProductController.updateStock(java.util.UUID, int)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt; in (ProductController.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.customer()&gt; has return type &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse&gt; in (DashboardResponse.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.from(com.poc.apistyles.domain.port.inbound.DashboardService$Dashboard)&gt; calls method &lt;com.poc.apistyles.adapter.rest.dto.CustomerResponse.from(com.poc.apistyles.domain.model.Customer)&gt; in (DashboardResponse.java:16)
+Method &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.from(com.poc.apistyles.domain.port.inbound.DashboardService$Dashboard)&gt; references method &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.from(com.poc.apistyles.domain.model.Order)&gt; in (DashboardResponse.java:17)
+Method &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.from(com.poc.apistyles.domain.port.inbound.DashboardService$Dashboard)&gt; references method &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse.from(com.poc.apistyles.domain.model.Product)&gt; in (DashboardResponse.java:18)
+Method &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.recentOrders()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse&gt; in (DashboardResponse.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.dto.DashboardResponse.topProducts()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.ProductResponse&gt; in (DashboardResponse.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.dto.OrderRequest.items()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderItemRequest&gt; in (OrderRequest.java:0)
+Method &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.from(com.poc.apistyles.domain.model.Order)&gt; references method &lt;com.poc.apistyles.adapter.rest.dto.OrderItemResponse.from(com.poc.apistyles.domain.model.OrderItem)&gt; in (OrderResponse.java:18)
+Method &lt;com.poc.apistyles.adapter.rest.dto.OrderResponse.items()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.adapter.rest.dto.OrderItemResponse&gt;&gt; with type argument depending on &lt;com.poc.apistyles.adapter.rest.dto.OrderItemResponse&gt; in (OrderResponse.java:0)
+Method &lt;com.poc.apistyles.adapter.websocket.handler.OrderStatusHandler.requestOrderStatus(java.lang.String)&gt; calls method &lt;com.poc.apistyles.adapter.websocket.service.NotificationService.getOrderStatus(java.lang.String)&gt; in (OrderStatusHandler.java:36)
+Method &lt;com.poc.apistyles.adapter.websocket.handler.OrderStatusHandler.unsubscribeFromOrder(java.lang.String)&gt; calls method &lt;com.poc.apistyles.adapter.websocket.service.NotificationService.unsubscribe(java.lang.String)&gt; in (OrderStatusHandler.java:30)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.poc.apistyles.arch.LayerDependencyTest.adapterShouldOnlyDependOnApplicationOrDomain(LayerDependencyTest.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="applicationShouldNotHaveCyclicDependencies()"></a>
+<h3 class="failures">applicationShouldNotHaveCyclicDependencies()</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Rule 'slices matching 'com.poc.apistyles.application.(*)..' should be free of cycles' failed to check any classes. This means either that no classes have been passed to the rule at all, or that no classes passed to the rule matched the `that()` clause. To allow rules being evaluated without checking any classes you can either use `ArchRule.allowEmptyShould(true)` on a single rule or set the configuration property `archRule.failOnEmptyShould = false` to change the behavior globally.
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.verifyNoEmptyShouldIfEnabled(ArchRule.java:201)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.evaluate(ArchRule.java:181)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:84)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.tngtech.archunit.library.dependencies.SliceRule.check(SliceRule.java:81)
+	at com.poc.apistyles.arch.LayerDependencyTest.applicationShouldNotHaveCyclicDependencies(LayerDependencyTest.java:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="infrastructureShouldOnlyDependOnDomainOrApplication()"></a>
+<h3 class="failures">infrastructureShouldOnlyDependOnDomainOrApplication()</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package 'com.poc.apistyles.infrastructure..' should only depend on classes that reside in any package ['com.poc.apistyles.domain..', 'com.poc.apistyles.application..', 'java..', 'org.springframework..', 'jakarta..', 'org.hibernate..']' was violated (86 times):
+Class &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository&gt; has generic interface &lt;org.springframework.data.jpa.repository.JpaRepository&lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity, java.util.UUID&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity&gt; in (JpaCustomerRepository.java:0)
+Class &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository&gt; has generic interface &lt;org.springframework.data.jpa.repository.JpaRepository&lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity, java.util.UUID&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt; in (JpaOrderRepository.java:0)
+Class &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository&gt; has generic interface &lt;org.springframework.data.jpa.repository.JpaRepository&lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity, java.util.UUID&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt; in (JpaProductRepository.java:0)
+Constructor &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity.&lt;init&gt;(java.util.UUID, java.util.UUID, com.poc.apistyles.domain.model.OrderStatus, java.math.BigDecimal, java.util.List, java.time.Instant, java.time.Instant)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity&gt; in (OrderEntity.java:0)
+Constructor &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.&lt;init&gt;(com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository)&gt; has parameter of type &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository&gt; in (CustomerRepositoryImpl.java:0)
+Constructor &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.&lt;init&gt;(com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository)&gt; has parameter of type &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository&gt; in (OrderRepositoryImpl.java:0)
+Constructor &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.&lt;init&gt;(com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository)&gt; has parameter of type &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository&gt; in (ProductRepositoryImpl.java:0)
+Field &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity.items&gt; has generic type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity&gt; in (OrderEntity.java:0)
+Field &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.jpaRepository&gt; has type &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository&gt; in (CustomerRepositoryImpl.java:0)
+Field &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.jpaRepository&gt; has type &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository&gt; in (OrderRepositoryImpl.java:0)
+Field &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.jpaRepository&gt; has type &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository&gt; in (ProductRepositoryImpl.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity.fromDomain(com.poc.apistyles.domain.model.Order)&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity.fromDomain(com.poc.apistyles.domain.model.OrderItem)&gt; in (OrderEntity.java:78)
+Method &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity.getItems()&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity&gt; in (OrderEntity.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity.setItems(java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity&gt; in (OrderEntity.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity.toDomain()&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity.toDomain()&gt; in (OrderEntity.java:71)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity.toDomain()&gt; in (CustomerMapper.java:12)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity)&gt; has parameter of type &lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity&gt; in (CustomerMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toDomainList(java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity&gt; in (CustomerMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toEntity(com.poc.apistyles.domain.model.Customer)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity.fromDomain(com.poc.apistyles.domain.model.Customer)&gt; in (CustomerMapper.java:17)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toEntity(com.poc.apistyles.domain.model.Customer)&gt; has return type &lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity&gt; in (CustomerMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toEntityList(java.util.List)&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity&gt; in (CustomerMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.OrderEntity)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity.toDomain()&gt; in (OrderMapper.java:14)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.OrderEntity)&gt; has parameter of type &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt; in (OrderMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomainItem(com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity.toDomain()&gt; in (OrderMapper.java:36)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomainItem(com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity)&gt; has parameter of type &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity&gt; in (OrderMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomainList(java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt; in (OrderMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toEntity(com.poc.apistyles.domain.model.Order)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity.fromDomain(com.poc.apistyles.domain.model.Order)&gt; in (OrderMapper.java:19)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toEntity(com.poc.apistyles.domain.model.Order)&gt; has return type &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt; in (OrderMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toEntityItem(com.poc.apistyles.domain.model.OrderItem)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity.fromDomain(com.poc.apistyles.domain.model.OrderItem)&gt; in (OrderMapper.java:41)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toEntityItem(com.poc.apistyles.domain.model.OrderItem)&gt; has return type &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderItemEntity&gt; in (OrderMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toEntityList(java.util.List)&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt; in (OrderMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.ProductEntity)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity.toDomain()&gt; in (ProductMapper.java:12)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.ProductEntity)&gt; has parameter of type &lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt; in (ProductMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toDomainList(java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt; in (ProductMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toEntity(com.poc.apistyles.domain.model.Product)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity.fromDomain(com.poc.apistyles.domain.model.Product)&gt; in (ProductMapper.java:17)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toEntity(com.poc.apistyles.domain.model.Product)&gt; has return type &lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt; in (ProductMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toEntityList(java.util.List)&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt; in (ProductMapper.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.delete(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository.deleteById(java.lang.Object)&gt; in (CustomerRepositoryImpl.java:52)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.findAll()&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toDomainList(java.util.List)&gt; in (CustomerRepositoryImpl.java:31)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.findAll()&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository.findAll()&gt; in (CustomerRepositoryImpl.java:31)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.findById(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository.findById(java.lang.Object)&gt; in (CustomerRepositoryImpl.java:26)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.findById(java.util.UUID)&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity)&gt; in (CustomerRepositoryImpl.java:26)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.findByTier(com.poc.apistyles.domain.model.CustomerTier)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository.findByTier(com.poc.apistyles.domain.model.CustomerTier)&gt; in (CustomerRepositoryImpl.java:36)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.findByTier(com.poc.apistyles.domain.model.CustomerTier)&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity)&gt; in (CustomerRepositoryImpl.java:36)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.save(com.poc.apistyles.domain.model.Customer)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity)&gt; in (CustomerRepositoryImpl.java:45)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.save(com.poc.apistyles.domain.model.Customer)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity)&gt; in (CustomerRepositoryImpl.java:47)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.save(com.poc.apistyles.domain.model.Customer)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.CustomerMapper.toEntity(com.poc.apistyles.domain.model.Customer)&gt; in (CustomerRepositoryImpl.java:43)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.save(com.poc.apistyles.domain.model.Customer)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository.save(java.lang.Object)&gt; in (CustomerRepositoryImpl.java:45)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.CustomerRepositoryImpl.save(com.poc.apistyles.domain.model.Customer)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository.save(java.lang.Object)&gt; in (CustomerRepositoryImpl.java:47)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaCustomerRepository.findByTier(com.poc.apistyles.domain.model.CustomerTier)&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.CustomerEntity&gt; in (JpaCustomerRepository.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository.findByCustomerId(java.util.UUID)&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt; in (JpaOrderRepository.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository.findByStatus(com.poc.apistyles.domain.model.OrderStatus)&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt; in (JpaOrderRepository.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository.findRecentByCustomerId(java.util.UUID, int)&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.OrderEntity&gt; in (JpaOrderRepository.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository.findByCategory(java.lang.String)&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt; in (JpaProductRepository.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository.findTopByOrderFrequency(java.util.UUID, int)&gt; has generic return type &lt;java.util.List&lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt;&gt; with type argument depending on &lt;com.poc.apistyles.infrastructure.persistence.entity.ProductEntity&gt; in (JpaProductRepository.java:0)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.delete(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository.deleteById(java.lang.Object)&gt; in (OrderRepositoryImpl.java:54)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.findByCustomerId(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository.findByCustomerId(java.util.UUID)&gt; in (OrderRepositoryImpl.java:31)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.findByCustomerId(java.util.UUID)&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.OrderEntity)&gt; in (OrderRepositoryImpl.java:31)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.findById(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository.findById(java.lang.Object)&gt; in (OrderRepositoryImpl.java:26)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.findById(java.util.UUID)&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.OrderEntity)&gt; in (OrderRepositoryImpl.java:26)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.findByStatus(com.poc.apistyles.domain.model.OrderStatus)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository.findByStatus(com.poc.apistyles.domain.model.OrderStatus)&gt; in (OrderRepositoryImpl.java:59)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.findByStatus(com.poc.apistyles.domain.model.OrderStatus)&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.OrderEntity)&gt; in (OrderRepositoryImpl.java:59)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.findRecentByCustomerId(java.util.UUID, int)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository.findRecentByCustomerId(java.util.UUID, int)&gt; in (OrderRepositoryImpl.java:38)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.findRecentByCustomerId(java.util.UUID, int)&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.OrderEntity)&gt; in (OrderRepositoryImpl.java:38)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.save(com.poc.apistyles.domain.model.Order)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.OrderEntity)&gt; in (OrderRepositoryImpl.java:47)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.save(com.poc.apistyles.domain.model.Order)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.OrderEntity)&gt; in (OrderRepositoryImpl.java:49)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.save(com.poc.apistyles.domain.model.Order)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.OrderMapper.toEntity(com.poc.apistyles.domain.model.Order)&gt; in (OrderRepositoryImpl.java:45)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.save(com.poc.apistyles.domain.model.Order)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository.save(java.lang.Object)&gt; in (OrderRepositoryImpl.java:47)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.OrderRepositoryImpl.save(com.poc.apistyles.domain.model.Order)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaOrderRepository.save(java.lang.Object)&gt; in (OrderRepositoryImpl.java:49)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.delete(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository.deleteById(java.lang.Object)&gt; in (ProductRepositoryImpl.java:58)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.findAll()&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toDomainList(java.util.List)&gt; in (ProductRepositoryImpl.java:30)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.findAll()&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository.findAll()&gt; in (ProductRepositoryImpl.java:30)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.findByCategory(java.lang.String)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository.findByCategory(java.lang.String)&gt; in (ProductRepositoryImpl.java:35)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.findByCategory(java.lang.String)&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.ProductEntity)&gt; in (ProductRepositoryImpl.java:35)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.findById(java.util.UUID)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository.findById(java.lang.Object)&gt; in (ProductRepositoryImpl.java:25)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.findById(java.util.UUID)&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.ProductEntity)&gt; in (ProductRepositoryImpl.java:25)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.findTopByOrderFrequency(java.util.UUID, int)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository.findTopByOrderFrequency(java.util.UUID, int)&gt; in (ProductRepositoryImpl.java:42)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.findTopByOrderFrequency(java.util.UUID, int)&gt; references method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.ProductEntity)&gt; in (ProductRepositoryImpl.java:42)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.save(com.poc.apistyles.domain.model.Product)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.ProductEntity)&gt; in (ProductRepositoryImpl.java:51)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.save(com.poc.apistyles.domain.model.Product)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toDomain(com.poc.apistyles.infrastructure.persistence.entity.ProductEntity)&gt; in (ProductRepositoryImpl.java:53)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.save(com.poc.apistyles.domain.model.Product)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toEntity(com.poc.apistyles.domain.model.Product)&gt; in (ProductRepositoryImpl.java:49)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.save(com.poc.apistyles.domain.model.Product)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository.save(java.lang.Object)&gt; in (ProductRepositoryImpl.java:51)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.save(com.poc.apistyles.domain.model.Product)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository.save(java.lang.Object)&gt; in (ProductRepositoryImpl.java:53)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.saveAll(java.util.List)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toDomainList(java.util.List)&gt; in (ProductRepositoryImpl.java:64)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.saveAll(java.util.List)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.mapper.ProductMapper.toEntityList(java.util.List)&gt; in (ProductRepositoryImpl.java:63)
+Method &lt;com.poc.apistyles.infrastructure.persistence.repository.ProductRepositoryImpl.saveAll(java.util.List)&gt; calls method &lt;com.poc.apistyles.infrastructure.persistence.repository.JpaProductRepository.saveAll(java.lang.Iterable)&gt; in (ProductRepositoryImpl.java:64)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.poc.apistyles.arch.LayerDependencyTest.infrastructureShouldOnlyDependOnDomainOrApplication(LayerDependencyTest.java:82)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">adapterShouldOnlyDependOnApplicationOrDomain()</td>
+<td class="failures">0.023s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">applicationShouldNotHaveCyclicDependencies()</td>
+<td class="failures">0.002s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">domainModelShouldNotDependOnOtherLayers()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">domainShouldNotHaveCyclicDependencies()</td>
+<td class="success">0.023s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">infrastructureShouldOnlyDependOnDomainOrApplication()</td>
+<td class="failures">0.005s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.5</a> at 2026年2月18日 下午9:49:52</p>
+</div>
+</div>
+</body>
+</html>
