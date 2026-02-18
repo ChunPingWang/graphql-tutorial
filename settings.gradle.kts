@@ -12,7 +12,7 @@ include("application")
 include("infrastructure")
 include("adapter-rest")
 include("adapter-graphql")
-// include("adapter-grpc")  // Temporarily disabled - grpc dependencies not resolving
+include("adapter-grpc")
 include("adapter-websocket")
 include("adapter-soap")
 include("test-support")

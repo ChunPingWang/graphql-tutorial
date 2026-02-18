@@ -1,5 +1,6 @@
 package com.poc.apistyles.application;
 
+import com.poc.apistyles.domain.exception.EntityNotFoundException;
 import com.poc.apistyles.domain.model.Customer;
 import com.poc.apistyles.domain.model.CustomerTier;
 import com.poc.apistyles.domain.port.inbound.CustomerService;
@@ -28,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer getCustomer(UUID id) {
         return customerRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Customer not found: " + id));
+            .orElseThrow(() -> new EntityNotFoundException("Customer", id));
     }
 
     @Override

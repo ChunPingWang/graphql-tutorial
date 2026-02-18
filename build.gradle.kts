@@ -1,6 +1,7 @@
 plugins {
-    id("org.springframework.boot") version "3.4.1" apply false
-    id("com.google.protobuf") version "0.9.4" apply false
+    alias(libs.plugins.spring.boot) apply false
+    alias(libs.plugins.spring.dependency.management) apply false
+    alias(libs.plugins.protobuf) apply false
 }
 
 allprojects {
@@ -18,10 +19,10 @@ subprojects {
     }
 
     dependencies {
-        "compileOnly"("org.projectlombok:lombok:1.18.36")
-        "annotationProcessor"("org.projectlombok:lombok:1.18.36")
-        "testCompileOnly"("org.projectlombok:lombok:1.18.36")
-        "testAnnotationProcessor"("org.projectlombok:lombok:1.18.36")
+        "compileOnly"(rootProject.libs.lombok)
+        "annotationProcessor"(rootProject.libs.lombok)
+        "testCompileOnly"(rootProject.libs.lombok)
+        "testAnnotationProcessor"(rootProject.libs.lombok)
     }
 
     tasks.withType<JavaCompile> {

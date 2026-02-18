@@ -4,8 +4,8 @@ plugins {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-websocket")
-    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation(libs.spring.boot.starter.websocket)
+    implementation(libs.spring.boot.starter.data.redis)
     implementation(project(":domain"))
     implementation(project(":application"))
     implementation(project(":infrastructure"))

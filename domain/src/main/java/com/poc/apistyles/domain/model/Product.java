@@ -1,19 +1,20 @@
 package com.poc.apistyles.domain.model;
 
+import com.poc.apistyles.domain.exception.InsufficientStockException;
+import com.poc.apistyles.domain.exception.InvalidEntityException;
+
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
 public class Product {
-    private UUID id;
-    private String name;
-    private BigDecimal price;
-    private int stock;
-    private String category;
-    private Instant createdAt;
-    private Instant updatedAt;
-
-    public Product() {}
+    private final UUID id;
+    private final String name;
+    private final BigDecimal price;
+    private final int stock;
+    private final String category;
+    private final Instant createdAt;
+    private final Instant updatedAt;
 
     private Product(UUID id, String name, BigDecimal price, int stock, String category, Instant createdAt, Instant updatedAt) {
         this.id = id;
@@ -26,6 +27,15 @@ public class Product {
     }
 
     public static Product create(String name, BigDecimal price, int stock, String category) {
+        if (name == null || name.isBlank()) {
+            throw new InvalidEntityException("Product name must not be blank");
+        }
+        if (price == null || price.compareTo(BigDecimal.ZERO) < 0) {
+            throw new InvalidEntityException("Product price must not be negative");
+        }
+        if (stock < 0) {
+            throw new InvalidEntityException("Product stock must not be negative");
+        }
         return new Product(UUID.randomUUID(), name, price, stock, category, Instant.now(), Instant.now());
     }
 
@@ -51,7 +61,7 @@ public class Product {
 
     public Product reserveStock(int quantity) {
         if (!hasEnoughStock(quantity)) {
-            throw new IllegalArgumentException("Insufficient stock for product: " + name);
+            throw new InsufficientStockException(id, quantity, stock);
         }
         return withStock(stock - quantity);
     }
