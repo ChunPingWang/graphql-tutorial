@@ -1,0 +1,67 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle-wrapper.jar
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Eclipse
+bin/
+*.class
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+logs/
+
+# Test reports
+test-results/
+xml-report/
+
+# Coverage
+jacoco/
+coverage/
+
+# Build artifacts
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# Environment files
+.env
+.env.local
+*.local
+
+# Application
+*.yml
+!gradle-wrapper.properties
