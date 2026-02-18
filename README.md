@@ -148,7 +148,7 @@ stateDiagram-v2
 ## 專案結構
 
 ```
-api-styles-poc/
+graphql-tutorial/                  # Git repo（Gradle rootProject.name = "api-styles-poc"）
 ├── domain/                        # 領域層 — 核心業務邏輯（零框架依賴）
 │   └── src/main/java/.../domain/
 │       ├── model/                 # 領域模型 (Customer, Order, Product, OrderItem)
@@ -218,9 +218,11 @@ api-styles-poc/
 - Docker & Docker Compose
 - Gradle 8.5+（或使用專案內建 `gradlew`）
 
-### 1. 啟動本地基礎設施
+### 1. Clone 並啟動本地基礎設施
 
 ```bash
+git clone https://github.com/ChunPingWang/graphql-tutorial.git
+cd graphql-tutorial
 docker-compose up -d
 ```
 
@@ -276,12 +278,14 @@ docker-compose up -d
 
 | 方法 | 路徑 | 描述 |
 |------|------|------|
+| GET | `/api/v1/orders` | 取得所有訂單 |
 | GET | `/api/v1/orders/{id}` | 取得單一訂單 |
 | POST | `/api/v1/orders` | 建立訂單 |
 | PUT | `/api/v1/orders/{id}/confirm` | 確認訂單 |
 | PUT | `/api/v1/orders/{id}/ship` | 出貨 |
 | PUT | `/api/v1/orders/{id}/deliver` | 送達 |
 | PUT | `/api/v1/orders/{id}/cancel` | 取消訂單 |
+| PUT | `/api/v1/orders/{id}/status?status=` | 依參數更新狀態 |
 
 **Products**
 
@@ -304,8 +308,8 @@ docker-compose up -d
 
 ```graphql
 # 查詢客戶儀表板 — 一次取得所有需要的資料
-query Dashboard($id: ID!) {
-  dashboard(customerId: $id) {
+query Dashboard($customerId: ID!) {
+  dashboard(customerId: $customerId) {
     customer { name email tier }
     recentOrders { id status total items { quantity unitPrice } }
     topProducts { name price stock }
@@ -337,15 +341,22 @@ service CustomerService {
     rpc DeleteCustomer(DeleteCustomerRequest) returns (DeleteCustomerResponse);
 }
 
-// product.proto — 支援 Client Streaming 批次匯入
+// product.proto — CRUD + Client Streaming 批次匯入
 service ProductService {
+    rpc GetProduct(GetProductRequest) returns (ProductResponse);
+    rpc CreateProduct(CreateProductRequest) returns (ProductResponse);
+    rpc ListProducts(ListProductsRequest) returns (ListProductsResponse);
+    rpc UpdateStock(UpdateStockRequest) returns (ProductResponse);
     rpc ImportProducts(stream ImportProductsRequest) returns (ImportProductsResponse);
 }
 
-// order.proto — 訂單狀態轉換
+// order.proto — 建立 + 狀態轉換
 service OrderService {
+    rpc GetOrder(GetOrderRequest) returns (OrderResponse);
+    rpc CreateOrder(CreateOrderRequest) returns (OrderResponse);
     rpc ConfirmOrder(ConfirmOrderRequest) returns (OrderResponse);
     rpc ShipOrder(ShipOrderRequest) returns (OrderResponse);
+    rpc DeliverOrder(DeliverOrderRequest) returns (OrderResponse);
     rpc CancelOrder(CancelOrderRequest) returns (OrderResponse);
 }
 ```
