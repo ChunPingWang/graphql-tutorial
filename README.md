@@ -59,22 +59,25 @@ graph TB
     end
 
     subgraph "Driven Adapters（出站）"
-        INFRA["infrastructure<br/>JPA / Flyway"]
+        INFRA["infrastructure<br/>JPA / Flyway / Config"]
         PG[(PostgreSQL 17)]
         RD[(Redis 7.4)]
     end
 
-    REST --> APP
-    GQL --> APP
-    GRPC --> APP
-    WS --> APP
-    SOAP --> APP
+    REST -->|依賴| APP
+    GQL -->|依賴| APP
+    GRPC -->|依賴| APP
+    WS -->|依賴| APP
+    SOAP -->|依賴| APP
 
-    APP --> DM
-    DM --> INFRA
+    APP -->|依賴| DM
+    INFRA -->|實作 Port| DM
+    INFRA -->|註冊 Bean| APP
     INFRA --> PG
     INFRA --> RD
 ```
+
+> **依賴方向**：所有箭頭都指向內層（Domain）。Adapter 透過 Application 的 inbound port 呼叫業務邏輯；Infrastructure 實作 Domain 的 outbound port（Repository），並透過 `@Configuration` 註冊 Application 層的 Bean。Domain 不依賴任何外層。
 
 ## 領域模型
 
