@@ -2,7 +2,6 @@ package com.poc.apistyles.adapter.websocket.service;
 
 import com.poc.apistyles.domain.model.Order;
 import com.poc.apistyles.domain.port.inbound.OrderService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +12,13 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class NotificationService {
 
-    @Autowired
-    private SimpMessagingTemplate messagingTemplate;
+    private final SimpMessagingTemplate messagingTemplate;
+    private final OrderService orderService;
 
-    @Autowired
-    private OrderService orderService;
+    public NotificationService(SimpMessagingTemplate messagingTemplate, OrderService orderService) {
+        this.messagingTemplate = messagingTemplate;
+        this.orderService = orderService;
+    }
 
     private final Map<String, String> subscriptions = new ConcurrentHashMap<>();
 

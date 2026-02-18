@@ -5,7 +5,6 @@ import com.poc.apistyles.domain.model.Product;
 import com.poc.apistyles.domain.port.inbound.ProductService;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -15,8 +14,11 @@ import java.util.stream.Collectors;
 @GrpcService
 public class ProductGrpcService extends ProductServiceGrpc.ProductServiceImplBase {
 
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
+
+    public ProductGrpcService(ProductService productService) {
+        this.productService = productService;
+    }
 
     @Override
     public void getProduct(GetProductRequest request, StreamObserver<ProductResponse> responseObserver) {

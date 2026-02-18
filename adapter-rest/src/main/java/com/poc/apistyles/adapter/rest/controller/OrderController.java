@@ -67,15 +67,4 @@ public class OrderController {
         return ResponseEntity.ok(OrderResponse.from(o));
     }
 
-    @PutMapping("/{id}/status")
-    public ResponseEntity<OrderResponse> updateOrderStatus(@PathVariable UUID id, @RequestParam OrderStatus status) {
-        Order o = switch (status) {
-            case CONFIRMED -> orderService.confirmOrder(id);
-            case SHIPPED -> orderService.shipOrder(id);
-            case DELIVERED -> orderService.deliverOrder(id);
-            case CANCELLED -> orderService.cancelOrder(id);
-            default -> throw new IllegalArgumentException("Invalid status: " + status);
-        };
-        return ResponseEntity.ok(OrderResponse.from(o));
-    }
 }

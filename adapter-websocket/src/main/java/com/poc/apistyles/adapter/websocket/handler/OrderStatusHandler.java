@@ -1,7 +1,6 @@
 package com.poc.apistyles.adapter.websocket.handler;
 
 import com.poc.apistyles.adapter.websocket.service.NotificationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -12,8 +11,11 @@ import java.util.Map;
 @Controller
 public class OrderStatusHandler {
 
-    @Autowired
-    private NotificationService notificationService;
+    private final NotificationService notificationService;
+
+    public OrderStatusHandler(NotificationService notificationService) {
+        this.notificationService = notificationService;
+    }
 
     @MessageMapping("/order/subscribe/{orderId}")
     @SendTo("/topic/order/{orderId}")

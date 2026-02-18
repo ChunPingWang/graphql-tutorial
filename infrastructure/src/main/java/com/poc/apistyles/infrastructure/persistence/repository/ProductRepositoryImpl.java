@@ -47,9 +47,6 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public Product save(Product product) {
         ProductEntity entity = ProductMapper.toEntity(product);
-        if (product.id() == null) {
-            return ProductMapper.toDomain(jpaRepository.save(entity));
-        }
         return ProductMapper.toDomain(jpaRepository.save(entity));
     }
 

@@ -1,35 +1,37 @@
 package com.poc.apistyles.application;
 
 import com.poc.apistyles.domain.exception.EntityNotFoundException;
+import com.poc.apistyles.domain.model.Customer;
 import com.poc.apistyles.domain.model.Order;
 import com.poc.apistyles.domain.model.OrderItem;
+import com.poc.apistyles.domain.model.OrderStatus;
 import com.poc.apistyles.domain.port.inbound.OrderService;
 import com.poc.apistyles.domain.port.outbound.CustomerRepository;
 import com.poc.apistyles.domain.port.outbound.OrderRepository;
 import com.poc.apistyles.domain.port.outbound.ProductRepository;
+import com.poc.apistyles.domain.service.OrderDomainService;
 
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final CustomerRepository customerRepository;
     private final ProductRepository productRepository;
+    private final OrderDomainService orderDomainService;
 
     public OrderServiceImpl(OrderRepository orderRepository, CustomerRepository customerRepository,
-                           ProductRepository productRepository) {
+                           ProductRepository productRepository, OrderDomainService orderDomainService) {
         this.orderRepository = orderRepository;
         this.customerRepository = customerRepository;
         this.productRepository = productRepository;
+        this.orderDomainService = orderDomainService;
     }
 
     @Override
     public Order createOrder(UUID customerId, List<OrderItem> items) {
-        customerRepository.findById(customerId)
+        Customer customer = customerRepository.findById(customerId)
             .orElseThrow(() -> new EntityNotFoundException("Customer", customerId));
 
         for (OrderItem item : items) {
@@ -37,7 +39,7 @@ public class OrderServiceImpl implements OrderService {
                 .orElseThrow(() -> new EntityNotFoundException("Product", item.productId()));
         }
 
-        Order order = Order.create(customerId, items);
+        Order order = orderDomainService.createOrderWithDiscount(customer, items);
         return orderRepository.save(order);
     }
 
@@ -73,5 +75,16 @@ public class OrderServiceImpl implements OrderService {
         Order order = getOrder(id);
         Order cancelled = order.cancel();
         return orderRepository.save(cancelled);
+    }
+
+    @Override
+    public Order transitionTo(UUID id, OrderStatus targetStatus) {
+        return switch (targetStatus) {
+            case CONFIRMED -> confirmOrder(id);
+            case SHIPPED -> shipOrder(id);
+            case DELIVERED -> deliverOrder(id);
+            case CANCELLED -> cancelOrder(id);
+            default -> throw new IllegalArgumentException("Cannot transition to status: " + targetStatus);
+        };
     }
 }

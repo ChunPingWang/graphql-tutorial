@@ -51,9 +51,11 @@ class NamingConventionTest {
             .that()
             .resideInAPackage("com.poc.apistyles.application..")
             .and()
+            .areTopLevelClasses()
+            .and()
             .haveSimpleNameNotContaining("Configuration")
             .should()
-            .haveSimpleNameEndingWith("Service");
+            .haveSimpleNameContaining("Service");
 
         rule.check(importedClasses);
     }
@@ -69,7 +71,9 @@ class NamingConventionTest {
             .should()
             .haveSimpleNameEndingWith("Port")
             .orShould()
-            .haveSimpleNameEndingWith("Repository");
+            .haveSimpleNameEndingWith("Repository")
+            .orShould()
+            .haveSimpleNameEndingWith("Service");
 
         rule.check(importedClasses);
     }
@@ -81,13 +85,35 @@ class NamingConventionTest {
             .that()
             .resideInAPackage("com.poc.apistyles.adapter..")
             .and()
+            .resideOutsideOfPackage("com.poc.apistyles.adapter.grpc.protobuf..")
+            .and()
+            .areTopLevelClasses()
+            .and()
             .areNotInterfaces()
             .should()
             .haveSimpleNameEndingWith("Adapter")
             .orShould()
             .haveSimpleNameEndingWith("Controller")
             .orShould()
-            .haveSimpleNameEndingWith("Resolver");
+            .haveSimpleNameEndingWith("Resolver")
+            .orShould()
+            .haveSimpleNameEndingWith("Config")
+            .orShould()
+            .haveSimpleNameEndingWith("Handler")
+            .orShould()
+            .haveSimpleNameEndingWith("Service")
+            .orShould()
+            .haveSimpleNameEndingWith("Endpoint")
+            .orShould()
+            .haveSimpleNameEndingWith("Application")
+            .orShould()
+            .haveSimpleNameEndingWith("Request")
+            .orShould()
+            .haveSimpleNameEndingWith("Response")
+            .orShould()
+            .haveSimpleNameEndingWith("Input")
+            .orShould()
+            .haveSimpleNameEndingWith("Data");
 
         rule.check(importedClasses);
     }

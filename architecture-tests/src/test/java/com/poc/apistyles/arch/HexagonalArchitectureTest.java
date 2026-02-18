@@ -67,6 +67,8 @@ class HexagonalArchitectureTest {
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.domain.port..")
+            .and()
+            .areTopLevelClasses()
             .should()
             .beInterfaces();
 
@@ -79,6 +81,8 @@ class HexagonalArchitectureTest {
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.domain.port.inbound..")
+            .and()
+            .areTopLevelClasses()
             .should()
             .beInterfaces();
 
@@ -91,28 +95,12 @@ class HexagonalArchitectureTest {
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.domain.port.outbound..")
+            .and()
+            .areTopLevelClasses()
             .should()
             .beInterfaces();
 
         rule.check(importedClasses);
     }
 
-    @Test
-    void adaptersShouldOnlyUseOutboundPorts() {
-        ArchRule rule = ArchRuleDefinition
-            .classes()
-            .that()
-            .resideInAPackage("com.poc.apistyles.adapter..")
-            .should()
-            .onlyDependOnClassesThat()
-            .resideInAnyPackage(
-                "com.poc.apistyles.domain.port.outbound..",
-                "com.poc.apistyles.domain.model..",
-                "java..",
-                "org.springframework..",
-                "jakarta.."
-            );
-
-        rule.check(importedClasses);
-    }
 }

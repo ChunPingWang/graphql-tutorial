@@ -285,7 +285,6 @@ docker-compose up -d
 | PUT | `/api/v1/orders/{id}/ship` | 出貨 |
 | PUT | `/api/v1/orders/{id}/deliver` | 送達 |
 | PUT | `/api/v1/orders/{id}/cancel` | 取消訂單 |
-| PUT | `/api/v1/orders/{id}/status?status=` | 依參數更新狀態 |
 
 **Products**
 
@@ -423,20 +422,230 @@ flowchart TD
 
 > 上述決策框架與 [API Architecture Styles Made Simple](https://blog.levelupcoding.com/p/api-architecture-styles) 所建議的一致：根據問題本質選擇 API 風格，而非預設使用熟悉的技術。
 
-## 架構守護 (ArchUnit)
+## 架構守護 (ArchUnit) — 教學與實踐
 
-本專案透過 ArchUnit 自動化驗證架構規範，確保六角架構的依賴方向不被破壞：
+> ArchUnit 讓架構規範從「口頭約定」變成「自動化測試」。每次 CI 都會驗證依賴方向，防止架構腐化。
 
-| 規則 | 描述 |
-|------|------|
-| **Hexagonal Architecture** | Domain 不依賴 Adapter / Infrastructure / Application |
-| **Layer Dependency** | 禁止循環依賴；各層只能存取允許的層 |
-| **Naming Convention** | Service / Repository / Controller / Resolver 命名規範 |
-| **Coding Rules** | 禁止 Field Injection（`@Autowired`），禁止 public 欄位 |
+### 為什麼需要 ArchUnit？
+
+六角架構最重要的規則是 **依賴方向：外圈 → 內圈**，Domain 層絕不能反向依賴 Adapter 或 Infrastructure。然而在多人協作的專案中，只靠 Code Review 很容易遺漏違規。ArchUnit 將這些規則寫成可執行的測試，違反時直接 CI 失敗。
+
+### 測試總覽（20 條規則）
+
+本專案的 `architecture-tests` 模組包含 4 個測試類別、共 20 條架構規則：
+
+| 測試類別 | 規則數 | 驗證範疇 |
+|----------|--------|----------|
+| `HexagonalArchitectureTest` | 6 | 六角架構核心：Domain 不依賴外層、Port 必須是 Interface |
+| `LayerDependencyTest` | 6 | 層間依賴白名單、禁止循環依賴 |
+| `NamingConventionTest` | 6 | 類別命名規範（Service / Repository / Controller 等） |
+| `CodingRulesTest` | 3 | 編碼規範（禁止 Field Injection、禁止 public 欄位） |
 
 ```bash
+# 執行全部架構測試
 ./gradlew :architecture-tests:test
 ```
+
+### 教學 1：六角架構依賴守護 (`HexagonalArchitectureTest`)
+
+六角架構的核心不變量是 **Domain 不依賴任何外層**。以下三條規則分別防止 Domain 反向依賴 Adapter、Infrastructure、Application：
+
+```java
+// Domain 不得依賴 Adapter
+ArchRuleDefinition.noClasses()
+    .that().resideInAPackage("com.poc.apistyles.domain..")
+    .should().dependOnClassesThat()
+    .resideInAPackage("com.poc.apistyles.adapter..");
+
+// Domain 不得依賴 Infrastructure
+ArchRuleDefinition.noClasses()
+    .that().resideInAPackage("com.poc.apistyles.domain..")
+    .should().dependOnClassesThat()
+    .resideInAPackage("com.poc.apistyles.infrastructure..");
+
+// Domain 不得依賴 Application
+ArchRuleDefinition.noClasses()
+    .that().resideInAPackage("com.poc.apistyles.domain..")
+    .should().dependOnClassesThat()
+    .resideInAPackage("com.poc.apistyles.application..");
+```
+
+另外三條規則確保 Port 必須是 Interface（DIP 原則），讓外層透過介面與內層溝通：
+
+```java
+// Port 套件內的頂層類別必須是 Interface
+ArchRuleDefinition.classes()
+    .that().resideInAPackage("com.poc.apistyles.domain.port..")
+    .and().areTopLevelClasses()  // 排除 inner record（如 DashboardService.Dashboard）
+    .should().beInterfaces();
+```
+
+> **設計決策**：使用 `.areTopLevelClasses()` 排除 Port 介面內定義的 DTO record（如 `DashboardService.Dashboard`），這些 record 是 Value Object，合理地共存於 Port 介面內。
+
+### 教學 2：層間依賴白名單 (`LayerDependencyTest`)
+
+除了「不能依賴誰」，ArchUnit 也能規定「只能依賴誰」（白名單模式），更加嚴格：
+
+```java
+// Adapter 層只能依賴 Domain / Application + 框架 + 自身
+ArchRuleDefinition.classes()
+    .that().resideInAPackage("com.poc.apistyles.adapter..")
+    .and().resideOutsideOfPackage("com.poc.apistyles.adapter.grpc.protobuf..")
+    .should().onlyDependOnClassesThat()
+    .resideInAnyPackage(
+        "com.poc.apistyles.domain..",      // 內層
+        "com.poc.apistyles.application..", // 內層
+        "com.poc.apistyles.adapter..",     // 自身
+        "java..",                           // JDK
+        "org.springframework..",            // 框架
+        "jakarta..",                        // Jakarta EE
+        "io.grpc..",                        // gRPC
+        "net.devh..",                       // gRPC Spring Boot Starter
+        "graphql..",                        // GraphQL
+        "io.swagger..",                     // OpenAPI
+        "com.google.protobuf..",            // Protobuf
+        "javax.annotation.."               // JSR-250
+    );
+```
+
+> **處理生成程式碼**：gRPC protobuf 生成的類別（`adapter.grpc.protobuf..`）會依賴 protobuf 內部 API，所以用 `.resideOutsideOfPackage()` 排除。
+
+**循環依賴偵測** — 使用 `SlicesRuleDefinition` 確保同一層內的子套件之間沒有循環依賴：
+
+```java
+import static com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.slices;
+
+slices().matching("com.poc.apistyles.domain.(*)..")
+    .should().beFreeOfCycles();
+```
+
+**Domain Model 純淨性** — 進一步限制 Domain Model 只能依賴自身和 Domain Exception：
+
+```java
+ArchRuleDefinition.classes()
+    .that().resideInAPackage("com.poc.apistyles.domain.model..")
+    .should().onlyDependOnClassesThat()
+    .resideInAnyPackage(
+        "com.poc.apistyles.domain.model..",
+        "com.poc.apistyles.domain.exception..",
+        "java.."
+    );
+```
+
+### 教學 3：命名規範 (`NamingConventionTest`)
+
+統一命名能降低認知負擔，ArchUnit 可以自動驗證：
+
+```java
+// Application 層的頂層類別必須包含 "Service"
+ArchRuleDefinition.classes()
+    .that().resideInAPackage("com.poc.apistyles.application..")
+    .and().areTopLevelClasses()
+    .should().haveSimpleNameContaining("Service");
+
+// Adapter 層的頂層類別必須以約定後綴結尾
+ArchRuleDefinition.classes()
+    .that().resideInAPackage("com.poc.apistyles.adapter..")
+    .and().resideOutsideOfPackage("com.poc.apistyles.adapter.grpc.protobuf..")
+    .and().areTopLevelClasses()
+    .and().areNotInterfaces()
+    .should().haveSimpleNameEndingWith("Controller")
+    .orShould().haveSimpleNameEndingWith("Resolver")
+    .orShould().haveSimpleNameEndingWith("Service")
+    .orShould().haveSimpleNameEndingWith("Endpoint")
+    .orShould().haveSimpleNameEndingWith("Config")
+    .orShould().haveSimpleNameEndingWith("Handler")
+    .orShould().haveSimpleNameEndingWith("Application")
+    .orShould().haveSimpleNameEndingWith("Request")
+    .orShould().haveSimpleNameEndingWith("Response")
+    .orShould().haveSimpleNameEndingWith("Input")
+    .orShould().haveSimpleNameEndingWith("Data");
+
+// 出站端口必須以 Repository 結尾
+ArchRuleDefinition.classes()
+    .that().resideInAPackage("com.poc.apistyles.domain.port.outbound..")
+    .and().areInterfaces()
+    .should().haveSimpleNameEndingWith("Repository");
+```
+
+### 教學 4：編碼規範 (`CodingRulesTest`)
+
+強制實施團隊編碼標準，例如禁止 Field Injection：
+
+```java
+// 禁止 @Autowired field injection — 應使用 Constructor Injection
+noFields().should()
+    .beAnnotatedWith(Autowired.class)
+    .because("Field injection is not recommended. Use constructor injection instead.");
+
+// 禁止 public 欄位（排除 enum 常數與 protobuf 生成碼）
+fields()
+    .that().areDeclaredInClassesThat()
+    .resideOutsideOfPackage("com.poc.apistyles.adapter.grpc.protobuf..")
+    .and().areDeclaredInClassesThat().areNotEnums()
+    .should().notBePublic()
+    .because("Classes should encapsulate their fields.");
+```
+
+> **常見陷阱**：Java `enum` 的常數（如 `OrderStatus.CREATED`）在位元碼層面是 `public static final` 欄位，必須用 `.areNotEnums()` 排除。gRPC protobuf 生成碼同理，有大量 `public static final int` 欄位常數。
+
+### 教學 5：在你的專案中引入 ArchUnit
+
+**Step 1** — 新增獨立的 Gradle 模組 `architecture-tests`，將測試與業務邏輯分離：
+
+```kotlin
+// architecture-tests/build.gradle.kts
+dependencies {
+    testImplementation(libs.archunit.junit5)
+    testImplementation(libs.junit.jupiter)
+    // 加入所有需要掃描的模組
+    testImplementation(project(":domain"))
+    testImplementation(project(":application"))
+    testImplementation(project(":infrastructure"))
+    testImplementation(project(":adapter-rest"))
+    testImplementation(project(":adapter-graphql"))
+    // ...
+}
+```
+
+**Step 2** — 建立 `@BeforeAll` 匯入所有類別（只載入一次，供所有測試共用）：
+
+```java
+@BeforeAll
+static void setup() {
+    importedClasses = new ClassFileImporter()
+        .importPackages(
+            "com.poc.apistyles.domain..",
+            "com.poc.apistyles.application..",
+            "com.poc.apistyles.adapter..",
+            "com.poc.apistyles.infrastructure.."
+        );
+}
+```
+
+**Step 3** — 從最重要的規則開始，逐步新增：
+
+1. 先寫 **依賴方向** 規則（六角架構核心）
+2. 再加 **編碼規範** 規則（Field Injection、public 欄位）
+3. 最後加 **命名規範** 規則（可選但建議）
+
+**Step 4** — 整合到 CI/CD Pipeline，確保每次提交都驗證：
+
+```yaml
+# .github/workflows/ci.yml
+- name: Architecture Tests
+  run: ./gradlew :architecture-tests:test
+```
+
+### 常見問題與解法
+
+| 問題 | 解法 |
+|------|------|
+| 生成程式碼違規（Protobuf/gRPC） | `.resideOutsideOfPackage("..protobuf..")` 排除 |
+| Enum 常數被判定為 public 欄位 | `.areDeclaredInClassesThat().areNotEnums()` |
+| Inner class / record 違反命名規則 | `.areTopLevelClasses()` 只檢查頂層類別 |
+| Application 層無子套件導致 Slice 為空 | `.allowEmptyShould(true)` |
+| 框架依賴未列入白名單 | 在 `resideInAnyPackage()` 中新增該框架的 package |
 
 ## Domain 例外處理
 

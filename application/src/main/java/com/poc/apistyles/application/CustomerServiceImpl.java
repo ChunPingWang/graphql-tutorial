@@ -9,9 +9,6 @@ import com.poc.apistyles.domain.port.outbound.CustomerRepository;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;

@@ -7,7 +7,6 @@ import com.poc.apistyles.domain.model.OrderStatus;
 import com.poc.apistyles.domain.port.inbound.OrderService;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -17,8 +16,11 @@ import java.util.stream.Collectors;
 @GrpcService
 public class OrderGrpcService extends OrderServiceGrpc.OrderServiceImplBase {
 
-    @Autowired
-    private OrderService orderService;
+    private final OrderService orderService;
+
+    public OrderGrpcService(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     @Override
     public void getOrder(GetOrderRequest request, StreamObserver<OrderResponse> responseObserver) {
@@ -47,14 +49,7 @@ public class OrderGrpcService extends OrderServiceGrpc.OrderServiceImplBase {
     public void updateStatus(UpdateStatusRequest request, StreamObserver<OrderResponse> responseObserver) {
         UUID id = UUID.fromString(request.getId());
         OrderStatus status = OrderStatus.valueOf(request.getStatus().toUpperCase());
-        Order order = orderService.getOrder(id);
-        Order updatedOrder = switch (status) {
-            case CONFIRMED -> orderService.confirmOrder(id);
-            case SHIPPED -> orderService.shipOrder(id);
-            case DELIVERED -> orderService.deliverOrder(id);
-            case CANCELLED -> orderService.cancelOrder(id);
-            default -> order;
-        };
+        Order updatedOrder = orderService.transitionTo(id, status);
         responseObserver.onNext(toResponse(updatedOrder));
         responseObserver.onCompleted();
     }

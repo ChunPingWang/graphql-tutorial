@@ -3,7 +3,6 @@ package com.poc.apistyles.adapter.soap.endpoint;
 import com.poc.apistyles.domain.model.Customer;
 import com.poc.apistyles.domain.model.CustomerTier;
 import com.poc.apistyles.domain.port.inbound.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -19,8 +18,11 @@ public class CustomerSoapEndpoint {
 
     private static final String NAMESPACE_URI = "http://poc.apistyles.com/soap";
 
-    @Autowired
-    private CustomerService customerService;
+    private final CustomerService customerService;
+
+    public CustomerSoapEndpoint(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetCustomerRequest")
     @ResponsePayload

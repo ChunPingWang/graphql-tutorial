@@ -5,6 +5,7 @@ import com.poc.apistyles.domain.model.*;
 import com.poc.apistyles.domain.port.outbound.CustomerRepository;
 import com.poc.apistyles.domain.port.outbound.OrderRepository;
 import com.poc.apistyles.domain.port.outbound.ProductRepository;
+import com.poc.apistyles.domain.service.OrderDomainService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,6 +30,7 @@ class OrderServiceImplTest {
     @Mock private CustomerRepository customerRepository;
     @Mock private ProductRepository productRepository;
 
+    private final OrderDomainService orderDomainService = new OrderDomainService();
     private OrderServiceImpl orderService;
 
     private final UUID customerId = UUID.randomUUID();
@@ -36,7 +38,7 @@ class OrderServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        orderService = new OrderServiceImpl(orderRepository, customerRepository, productRepository);
+        orderService = new OrderServiceImpl(orderRepository, customerRepository, productRepository, orderDomainService);
     }
 
     private List<OrderItem> sampleItems() {

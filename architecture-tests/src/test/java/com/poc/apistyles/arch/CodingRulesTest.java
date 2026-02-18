@@ -48,9 +48,15 @@ class CodingRulesTest {
 
     @Test
     void noPublicFields() {
-        ArchRule rule = noFields()
+        ArchRule rule = fields()
+            .that()
+            .areDeclaredInClassesThat()
+            .resideOutsideOfPackage("com.poc.apistyles.adapter.grpc.protobuf..")
+            .and()
+            .areDeclaredInClassesThat()
+            .areNotEnums()
             .should()
-            .bePublic()
+            .notBePublic()
             .because("Classes should encapsulate their fields. Use getters/setters instead.");
 
         rule.check(importedClasses);

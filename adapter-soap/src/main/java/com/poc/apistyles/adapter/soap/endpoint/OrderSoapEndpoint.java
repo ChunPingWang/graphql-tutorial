@@ -4,7 +4,6 @@ import com.poc.apistyles.domain.model.Order;
 import com.poc.apistyles.domain.model.OrderItem;
 import com.poc.apistyles.domain.model.OrderStatus;
 import com.poc.apistyles.domain.port.inbound.OrderService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -22,8 +21,11 @@ public class OrderSoapEndpoint {
 
     private static final String NAMESPACE_URI = "http://poc.apistyles.com/soap";
 
-    @Autowired
-    private OrderService orderService;
+    private final OrderService orderService;
+
+    public OrderSoapEndpoint(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetOrderRequest")
     @ResponsePayload

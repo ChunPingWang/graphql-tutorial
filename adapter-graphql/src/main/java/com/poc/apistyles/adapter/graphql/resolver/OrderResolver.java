@@ -41,13 +41,7 @@ public class OrderResolver {
 
     @MutationMapping
     public Order updateOrderStatus(@Argument UUID id, @Argument OrderStatus status) {
-        return switch (status) {
-            case CONFIRMED -> orderService.confirmOrder(id);
-            case SHIPPED -> orderService.shipOrder(id);
-            case DELIVERED -> orderService.deliverOrder(id);
-            case CANCELLED -> orderService.cancelOrder(id);
-            default -> throw new IllegalArgumentException("Invalid status: " + status);
-        };
+        return orderService.transitionTo(id, status);
     }
 
     public record OrderInput(UUID customerId, List<OrderItemInput> items) {}

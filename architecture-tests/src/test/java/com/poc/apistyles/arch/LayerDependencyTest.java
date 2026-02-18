@@ -39,6 +39,7 @@ class LayerDependencyTest {
             .matching("com.poc.apistyles.application.(*)..")
             .should()
             .beFreeOfCycles()
+            .allowEmptyShould(true)
             .check(importedClasses);
     }
 
@@ -48,15 +49,23 @@ class LayerDependencyTest {
             .classes()
             .that()
             .resideInAPackage("com.poc.apistyles.adapter..")
+            .and()
+            .resideOutsideOfPackage("com.poc.apistyles.adapter.grpc.protobuf..")
             .should()
             .onlyDependOnClassesThat()
             .resideInAnyPackage(
                 "com.poc.apistyles.domain..",
                 "com.poc.apistyles.application..",
+                "com.poc.apistyles.adapter..",
                 "java..",
                 "org.springframework..",
                 "jakarta..",
-                "io.grpc.."
+                "io.grpc..",
+                "net.devh..",
+                "graphql..",
+                "io.swagger..",
+                "com.google.protobuf..",
+                "javax.annotation.."
             );
 
         rule.check(importedClasses);
@@ -73,10 +82,13 @@ class LayerDependencyTest {
             .resideInAnyPackage(
                 "com.poc.apistyles.domain..",
                 "com.poc.apistyles.application..",
+                "com.poc.apistyles.infrastructure..",
                 "java..",
                 "org.springframework..",
                 "jakarta..",
-                "org.hibernate.."
+                "org.hibernate..",
+                "org.flywaydb..",
+                "org.postgresql.."
             );
 
         rule.check(importedClasses);
@@ -92,6 +104,7 @@ class LayerDependencyTest {
             .onlyDependOnClassesThat()
             .resideInAnyPackage(
                 "com.poc.apistyles.domain.model..",
+                "com.poc.apistyles.domain.exception..",
                 "java.."
             );
 

@@ -6,7 +6,6 @@ import com.poc.apistyles.domain.model.CustomerTier;
 import com.poc.apistyles.domain.port.inbound.CustomerService;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,8 +14,11 @@ import java.util.stream.Collectors;
 @GrpcService
 public class CustomerGrpcService extends CustomerServiceGrpc.CustomerServiceImplBase {
 
-    @Autowired
-    private CustomerService customerService;
+    private final CustomerService customerService;
+
+    public CustomerGrpcService(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
     @Override
     public void getCustomer(GetCustomerRequest request, StreamObserver<CustomerResponse> responseObserver) {
