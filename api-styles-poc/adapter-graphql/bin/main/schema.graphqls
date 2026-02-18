@@ -1,0 +1,92 @@
+type Query {
+    customer(id: ID!): Customer
+    customers: [Customer!]!
+    order(id: ID!): Order
+    orders: [Order!]!
+    product(id: ID!): Product
+    products: [Product!]!
+    dashboard(customerId: ID!): Dashboard!
+}
+
+type Mutation {
+    createCustomer(input: CustomerInput!): Customer!
+    updateCustomer(id: ID!, input: CustomerInput!): Customer!
+    deleteCustomer(id: ID!): Boolean!
+    createOrder(input: OrderInput!): Order!
+    updateOrderStatus(id: ID!, status: OrderStatus!): Order!
+}
+
+type Customer {
+    id: ID!
+    name: String!
+    email: String!
+    tier: CustomerTier!
+    createdAt: String!
+    updatedAt: String!
+}
+
+enum CustomerTier {
+    BRONZE
+    SILVER
+    GOLD
+    PLATINUM
+}
+
+type Order {
+    id: ID!
+    customerId: ID!
+    status: OrderStatus!
+    total: Float!
+    items: [OrderItem!]!
+    createdAt: String!
+    updatedAt: String!
+}
+
+type OrderItem {
+    id: ID!
+    productId: ID!
+    quantity: Int!
+    unitPrice: Float!
+    subtotal: Float!
+}
+
+enum OrderStatus {
+    CREATED
+    CONFIRMED
+    SHIPPED
+    DELIVERED
+    CANCELLED
+}
+
+type Product {
+    id: ID!
+    name: String!
+    price: Float!
+    stock: Int!
+    category: String!
+    createdAt: String!
+    updatedAt: String!
+}
+
+type Dashboard {
+    customer: Customer!
+    recentOrders: [Order!]!
+    topProducts: [Product!]!
+}
+
+input CustomerInput {
+    name: String!
+    email: String!
+    tier: CustomerTier!
+}
+
+input OrderInput {
+    customerId: ID!
+    items: [OrderItemInput!]!
+}
+
+input OrderItemInput {
+    productId: ID!
+    quantity: Int!
+    unitPrice: Float!
+}

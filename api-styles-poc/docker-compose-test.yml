@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  postgres-test:
+    image: postgres:17
+    container_name: graphql-poc-postgres-test
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: apistyles_test
+      POSTGRES_USER: apistyles_test
+      POSTGRES_PASSWORD: apistyles_test
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U apistyles_test -d apistyles_test"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  redis-test:
+    image: redis:7.4
+    container_name: graphql-poc-redis-test
+    ports:
+      - "6380:6379"
+    tmpfs:
+      - /data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s

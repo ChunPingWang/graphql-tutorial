@@ -1,0 +1,19 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositories {
+        mavenCentral()
+    }
+}
+
+rootProject.name = "api-styles-poc"
+
+include("domain")
+include("application")
+include("infrastructure")
+include("adapter-rest")
+include("adapter-graphql")
+// include("adapter-grpc")  // Temporarily disabled - grpc dependencies not resolving
+include("adapter-websocket")
+include("adapter-soap")
+include("test-support")
+include("architecture-tests")

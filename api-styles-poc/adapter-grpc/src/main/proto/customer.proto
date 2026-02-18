@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option java_package = "com.poc.apistyles.adapter.grpc.protobuf";
+option java_multiple_files = true;
+
+package com.poc.apistyles.grpc;
+
+service CustomerService {
+    rpc GetCustomer(GetCustomerRequest) returns (CustomerResponse);
+    rpc CreateCustomer(CreateCustomerRequest) returns (CustomerResponse);
+    rpc ListCustomers(ListCustomersRequest) returns (ListCustomersResponse);
+    rpc UpdateCustomer(UpdateCustomerRequest) returns (CustomerResponse);
+    rpc DeleteCustomer(DeleteCustomerRequest) returns (DeleteCustomerResponse);
+}
+
+message GetCustomerRequest {
+    string id = 1;
+}
+
+message CreateCustomerRequest {
+    string name = 1;
+    string email = 2;
+    string tier = 3;
+}
+
+message UpdateCustomerRequest {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string tier = 4;
+}
+
+message DeleteCustomerRequest {
+    string id = 1;
+}
+
+message DeleteCustomerResponse {
+    bool success = 1;
+}
+
+message CustomerResponse {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string tier = 4;
+    string created_at = 5;
+    string updated_at = 6;
+}
+
+message ListCustomersRequest {
+    int32 page = 1;
+    int32 size = 2;
+}
+
+message ListCustomersResponse {
+    repeated CustomerResponse customers = 1;
+    int32 total = 2;
+}

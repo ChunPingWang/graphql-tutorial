@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: graphql-poc-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: apistyles
+      POSTGRES_USER: apistyles
+      POSTGRES_PASSWORD: apistyles
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U apistyles -d apistyles"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - graphql-poc-network
+
+  redis:
+    image: redis:7.4
+    container_name: graphql-poc-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - graphql-poc-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  graphql-poc-network:
+    driver: bridge
