@@ -1,67 +1,71 @@
-# Gradle
-.gradle/
+# === Build outputs ===
 build/
 !gradle/wrapper/gradle-wrapper.jar
-!gradle-wrapper.jar
-
-# Maven
 target/
+
+# === Gradle ===
+.gradle/
+
+# === Maven (legacy) ===
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
 release.properties
 
-# IDE
+# === IDE — IntelliJ ===
 .idea/
 *.iml
 *.ipr
 *.iws
+out/
+
+# === IDE — Eclipse ===
 .project
 .classpath
 .settings/
+.factorypath
+bin/
+
+# === IDE — VS Code ===
 .vscode/
+
+# === Compiled classes ===
+*.class
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+
+# === Editor swap files ===
 *.swp
 *.swo
 *~
 
-# Eclipse
-bin/
-*.class
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Log files
+# === Log files ===
 *.log
 logs/
 
-# Test reports
+# === Test reports (generated) ===
 test-results/
 xml-report/
 
-# Coverage
+# === Coverage ===
 jacoco/
 coverage/
 
-# Build artifacts
-*.jar
+# === Packaged artifacts ===
 *.war
 *.ear
 *.zip
 *.tar.gz
 *.rar
 
-# Virtual machine crash logs
+# === JVM crash logs ===
 hs_err_pid*
 replay_pid*
 
-# Environment files
+# === Environment ===
 .env
 .env.local
 *.local
-
-# Application
-*.yml
-!gradle-wrapper.properties

@@ -1,6 +1,8 @@
 package com.poc.apistyles.test.annotations;
 
+import com.poc.apistyles.test.containers.PostgresContainerConfig;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.lang.annotation.ElementType;
@@ -12,5 +14,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @SpringBootTest
 @ActiveProfiles("test")
+@Import(PostgresContainerConfig.class)
 public @interface DatabaseTest {
 }

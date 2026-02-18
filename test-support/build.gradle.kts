@@ -4,22 +4,28 @@ plugins {
     id("io.spring.dependency-management")
 }
 
+tasks.named<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+    enabled = false
+}
+tasks.named<Jar>("jar") {
+    enabled = true
+}
+
 dependencies {
-    api("org.testcontainers:testcontainers:1.20.4")
-    api("org.testcontainers:postgresql:1.20.4")
-    api("org.testcontainers:junit-jupiter:1.20.4")
+    api(platform(libs.testcontainers.bom))
+    api(libs.testcontainers.core)
+    api(libs.testcontainers.postgresql)
+    api(libs.testcontainers.junit.jupiter)
 
-    api("org.springframework.boot:spring-boot-starter-test:3.4.1")
-    api("org.springframework.boot:spring-boot-starter-data-jpa:3.4.1")
-    api("org.springframework.boot:spring-boot-starter-data-redis:3.4.1")
+    api(libs.spring.boot.starter.test)
+    api(libs.spring.boot.starter.data.jpa)
+    api(libs.spring.boot.starter.data.redis)
+    api("org.springframework.boot:spring-boot-testcontainers")
 
-    api("org.junit.jupiter:junit-jupiter:5.11.4")
-    api("org.assertj:assertj-core:3.27.3")
-    api("org.mockito:mockito-core:5.15.2")
-    api("org.mockito:mockito-junit-jupiter:5.15.2")
+    api(libs.junit.jupiter)
+    api(libs.assertj.core)
+    api(libs.mockito.core)
+    api(libs.mockito.junit.jupiter)
 
     api(project(":domain"))
-
-    implementation("org.projectlombok:lombok:1.18.36")
-    annotationProcessor("org.projectlombok:lombok:1.18.36")
 }

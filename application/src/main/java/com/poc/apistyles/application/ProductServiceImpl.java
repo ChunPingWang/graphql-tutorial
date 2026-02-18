@@ -1,5 +1,6 @@
 package com.poc.apistyles.application;
 
+import com.poc.apistyles.domain.exception.EntityNotFoundException;
 import com.poc.apistyles.domain.model.Product;
 import com.poc.apistyles.domain.port.inbound.ProductService;
 import com.poc.apistyles.domain.port.outbound.ProductRepository;
@@ -28,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProduct(UUID id) {
         return productRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Product not found: " + id));
+            .orElseThrow(() -> new EntityNotFoundException("Product", id));
     }
 
     @Override

@@ -1,0 +1,68 @@
+[versions]
+spring-boot = "3.4.1"
+spring-dependency-management = "1.1.7"
+lombok = "1.18.36"
+springdoc = "2.6.0"
+grpc = "1.69.0"
+grpc-spring-boot = "3.1.0.RELEASE"
+protobuf = "4.29.3"
+protobuf-plugin = "0.9.4"
+testcontainers = "1.20.4"
+archunit = "1.3.0"
+assertj = "3.27.3"
+mockito = "5.15.2"
+junit-jupiter = "5.11.4"
+jakarta-inject = "2.0.1"
+flyway = "10.22.0"
+
+[libraries]
+# Spring Boot starters
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+spring-boot-starter-data-redis = { module = "org.springframework.boot:spring-boot-starter-data-redis" }
+spring-boot-starter-graphql = { module = "org.springframework.boot:spring-boot-starter-graphql" }
+spring-boot-starter-websocket = { module = "org.springframework.boot:spring-boot-starter-websocket" }
+spring-boot-starter-web-services = { module = "org.springframework.boot:spring-boot-starter-web-services" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+
+# Spring WS
+spring-ws-core = { module = "org.springframework.ws:spring-ws-core" }
+
+# Database
+postgresql = { module = "org.postgresql:postgresql" }
+flyway-core = { module = "org.flywaydb:flyway-core" }
+flyway-postgresql = { module = "org.flywaydb:flyway-database-postgresql" }
+
+# Lombok
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+
+# OpenAPI
+springdoc-openapi = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
+
+# gRPC
+grpc-spring-boot-starter = { module = "net.devh:grpc-spring-boot-starter", version.ref = "grpc-spring-boot" }
+grpc-bom = { module = "io.grpc:grpc-bom", version.ref = "grpc" }
+grpc-protobuf = { module = "io.grpc:grpc-protobuf" }
+grpc-stub = { module = "io.grpc:grpc-stub" }
+grpc-api = { module = "io.grpc:grpc-api" }
+protobuf-java = { module = "com.google.protobuf:protobuf-java" }
+protobuf-bom = { module = "com.google.protobuf:protobuf-bom", version.ref = "protobuf" }
+
+# Testing
+testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
+testcontainers-core = { module = "org.testcontainers:testcontainers" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql" }
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito" }
+archunit = { module = "com.tngtech.archunit:archunit", version.ref = "archunit" }
+archunit-junit5 = { module = "com.tngtech.archunit:archunit-junit5", version.ref = "archunit" }
+jakarta-inject-api = { module = "jakarta.inject:jakarta.inject-api", version.ref = "jakarta-inject" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }
